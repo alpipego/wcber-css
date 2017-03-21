@@ -1,0 +1,13 @@
+@function map-get-deep($map, $keys...) {
+    $value: $map;
+    @each $key in $keys {
+        //@debug "#{$key} exists in #{$value}:  #{map-has-key($value, $key)}" ;
+        @if map-has-key($value, $key) {
+            $value: map-get($value, $key);
+        } @else {
+            @warn "Specified index `#{$key}` does not exist in map";
+            @return false;
+        }
+    }
+    @return $value;
+}
