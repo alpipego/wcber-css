@@ -1,0 +1,18 @@
+.button {
+    display: inline-block;
+    background-color: map-get-deep($colors, 'cta');
+    border: 1px solid map-get-deep($colors, 'cta');
+    color: map-get-deep($colors, 'font', 'inverted');
+    padding: map-get-deep($spacing, 'h', 'small') 22px;
+    line-height: 1;
+    transition-duration: .2s;
+    &::before {
+        @include icon('angle-right');
+        padding-right: map-get-deep($spacing, 'h', 'tiny');
+    }
+    &:hover {
+        background-color: desaturate(map-get-deep($colors, 'cta'), 20);
+        border-bottom-color: desaturate(map-get-deep($colors, 'cta'), 20);
+        transition-duration: .3s;
+    }
+}

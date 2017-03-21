@@ -1,0 +1,169 @@
+$medium: rem-calc($medium);
+$padding: map-get-deep($spacing, 'h', 'medium');
+$padding-sm: map-get-deep($spacing, 'h', 'small');
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font: {
+        size: $rem-base;
+        family: $body;
+    }
+    background-color: map-get-deep($colors, 'bg', 'body');
+    line-height: $base-line-height;
+    color: map-get-deep($colors, 'dark');
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    transition: padding-top .75s;
+    &.admin-bar {
+        padding-top: 32px;
+        @include mobile() {
+            padding-top: 45px;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: {
+        weight: 500;
+    }
+    margin: {
+        top: rem-calc(1em);
+        bottom: .3em
+    }
+    & + p,
+    & + ul,
+    & + ol {
+        margin-top: 0;
+    }
+}
+
+h1 {
+    font-weight: 500;
+    margin: {
+        top: 15px;
+        bottom: 15px;
+    }
+}
+
+h2 {
+    font-size: rem-calc(24);
+}
+
+h3 {
+    font-size: rem-calc(22);
+}
+
+h4 {
+    font-size: rem-calc(20);
+}
+
+p,
+ul,
+ol {
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+        margin-top: 0;
+    }
+}
+
+ul,
+ol {
+    padding-left: map-get-deep($spacing, 'h', 'medium') * 2;
+    margin: 0;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: {
+            type: none;
+        }
+    ;
+        display: inline-block;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    -ms-interpolation-mode: bicubic;
+}
+
+a {
+    transition-duration: .2s;
+    text-decoration: none;
+    color: map-get-deep($colors, 'dark');
+    outline: 0;
+    border-bottom: 1px solid transparent;
+    &:visited,
+    &:active {
+        //border-bottom: 1px dashed map-get-deep($colors, 'dark');
+    }
+    &:hover {
+        border-bottom-color: map-get-deep($colors, 'dark');
+        transition-duration: .3s;
+        &.is-img,
+        &.is-logo {
+            border-bottom-color: transparent;
+        }
+    }
+}
+
+.screen-reader-text {
+    position: absolute;
+    left: -9999px;
+}
+
+aside {
+    @include grid(100);
+}
+
+section {
+    @include grid(100);
+}
+
+.header,
+.footer,
+.main {
+    overflow-x: hidden;
+    &-inner {
+        padding: {
+            right: map-get-deep($spacing, 'h', 'small');
+            left: map-get-deep($spacing, 'h', 'small');
+        }
+    }
+}
+
+.main {
+    @include row();
+}
+
+.main-inner {
+    @include grid(100);
+    clear: both;
+    padding-bottom: map-get-deep($spacing, 'v', 'large');
+}
+

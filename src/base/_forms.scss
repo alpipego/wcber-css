@@ -1,0 +1,260 @@
+form {
+    vertical-align: middle;
+}
+
+input,
+button,
+select,
+textarea {
+    box-sizing: border-box;
+    appearance: none;
+    vertical-align: inherit;
+    border: 1px solid map-get-deep($colors, 'forms', 'border');
+    border-radius: 0;
+    padding: {
+        left: map_get-deep($spacing, 'h', 'small');
+        right: map_get-deep($spacing, 'h', 'small');
+    }
+    font-size: 16px;
+    background-color: map-get-deep($colors, 'forms', 'bg');
+    &:focus {
+        outline: none;
+        border-color: map-get-deep($colors, 'bg', 'selected')!important;
+    }
+}
+
+input,
+button {
+    &[type="search"],
+    &[type="url"],
+    &[type="email"],
+    &[type="text"],
+    &[type="password"],
+    &[type="submit"] {
+        border: none;
+        height: map-get-deep($spacing, 'button', 'height');
+        vertical-align: middle;
+    }
+    &[type="search"],
+    &[type="url"],
+    &[type="email"],
+    &[type="password"],
+    &[type="text"] {
+        border: 1px solid map-get-deep($colors, 'forms', 'border');
+        color: map-get-deep($colors, 'dark');
+        &::placeholder {
+            color: map-get-deep($colors, 'forms', 'placeholder');
+            font-weight: 300;
+        }
+    }
+    &[type="submit"] {
+        @include ctaButton;
+        min-height: map-get-deep($spacing, 'button', 'height');
+        height: auto;
+        padding: {
+            top: 11px;
+            bottom: 11px;
+        }
+    }
+    &[type="radio"],
+    &[type="checkbox"] {
+        display: inline-block;
+        opacity: 0;
+        width: 22px;
+        height: 22px;
+        vertical-align: middle;
+        outline: none;
+        margin-right: map-get-deep($spacing, 'h', 'tiny');
+        &:active {
+            outline: none;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        & ~ .dummy {
+            border: 1px solid map-get-deep($colors, 'forms', 'border');
+            background-color: map-get-deep($colors, 'forms', 'bg');
+            width: 22px;
+            height: 22px;
+            position: absolute;
+            top: 8px;
+            left: 0;
+        }
+        &:checked {
+            & ~ .dummy {
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+    &[type="radio"] {
+        & ~ .dummy {
+            border-radius: 50%;
+            top: 9px;
+            &::before {
+                width: 6px;
+                height: 6px;
+                background-color: map-get-deep($colors, 'cta');
+                border: 1px solid map-get-deep($colors, 'cta');
+                border-radius: 50%;
+                top: 7px;
+                left: 7px;
+            }
+        }
+    }
+    &[type="checkbox"] {
+        &:checked {
+            & ~ .dummy {
+                &:before {
+                    @include icon('check');
+                    color: map-get-deep($colors, 'cta');
+                    display: block;
+                    width: 22px;
+                    height: 22px;
+                    position: absolute;
+                    top: 3px;
+                    left: 3px;
+                }
+            }
+        }
+    }
+    &.is-error {
+        border-color: map-get-deep($colors, 'cta');
+        &:focus {
+            border-color: map-get-deep($colors, 'forms', 'border');
+        }
+        & ~ .dummy {
+            border-color: map-get-deep($colors, 'cta');
+        }
+    }
+}
+
+select {
+    background: {
+        color: #fff;
+        image: url("../img/chevron-down.svg");
+        size: 13px;
+        repeat: no-repeat;
+        position: right 10px center;
+    }
+    font-weight: 300;
+    height: map-get-deep($spacing, 'button', 'height');
+    padding-right: map-get-deep($spacing, 'h', 'medium');
+    &.placeholder {
+        color: map-get-deep($colors, 'forms', 'placeholder');
+    }
+    &::-ms-expand {
+        display: none;
+    }
+    &.is-error {
+        border-color: map-get-deep($colors, 'cta');
+        &:focus {
+            border-color: map-get-deep($colors, 'forms', 'border');
+        }
+    }
+}
+
+textarea {
+    padding: {
+        top: 10px;
+        bottom: 10px;
+    }
+    resize: vertical;
+    height: 150px;
+    &::placeholder {
+        color: map-get-deep($colors, 'forms', 'placeholder');
+        font-weight: 300;
+    }
+    &.is-error {
+        border-color: map-get-deep($colors, 'cta');
+        &:focus {
+            border-color: map-get-deep($colors, 'forms', 'border');
+        }
+    }
+}
+
+label {
+    vertical-align: inherit;
+    line-height: map-get-deep($spacing, 'button', 'height');
+    font-weight: map-get-deep($font, 'defaultText', 'weight');
+    position: relative;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+button {
+    &.is-waiting {
+        opacity: .8;
+        pointer-events: none;
+        &::after {
+            content: "";
+            background: {
+                image: url("../img/loading.png");
+                size: cover;
+            }
+            display: inline-block;
+            animation: spin 2s linear infinite;
+            width: 20px;
+            height: 20px;
+            opacity: .5;
+            margin-left: 15px;
+            vertical-align: inherit;
+            position: absolute;
+            top: 17px;
+        }
+    }
+}
+
+#response {
+    text-align: center;
+    color: map-get-deep($colors, 'light');
+    &.error,
+    &.success {
+        padding: {
+            top: map-get-deep($spacing, 'h', 'tiny');
+            bottom: map-get-deep($spacing, 'h', 'tiny');
+        }
+    }
+    &.error {
+        background-color: map-get-deep($colors, 'forms', 'error');
+    }
+    &.success {
+        background-color: map-get-deep($colors, 'forms', 'success');
+    }
+    &.is-dismissible {
+        animation: dismiss .3s ease-out 2s forwards;
+        animation-fill-mode: forwards;
+        opacity: 1;
+        display: block;
+    }
+    a {
+        color: map-get-deep($colors, 'light');
+        border-bottom-color: map-get-deep($colors, 'light');
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes dismiss {
+    0% {
+        opacity: 1;
+        display: block;
+    }
+    99% {
+        opacity: 0;
+        display: block;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}

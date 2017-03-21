@@ -1,0 +1,41 @@
+@mixin readMoreButton($bg: false, $color: map-get-deep($colors, 'dark'), $icon: 'angle-right') {
+    display: inline-block;
+    border: 1px solid $color;
+    color: $color;
+    padding: map-get-deep($spacing, 'h', 'small') 22px;
+    transition-duration: .2s;
+    line-height: 1;
+    &::before {
+        @if ($icon) {
+            @include icon($icon);
+        }
+        padding-right: map-get-deep($spacing, 'h', 'tiny');
+    }
+    &:hover {
+        background-color: map-get-deep($colors, 'cta');
+        border-color: map-get-deep($colors, 'cta');
+        transition-duration: .3s;
+        color: map-get-deep($colors, 'font', 'inverted');
+    }
+}
+
+@mixin ctaButton($bg: map-get-deep($colors, 'cta'), $color: map-get-deep($colors, 'font', 'inverted'), $icon: 'angle-right') {
+    display: inline-block;
+    background-color: $bg;
+    border: 1px solid $bg;
+    color: $color;
+    padding: map-get-deep($spacing, 'h', 'small') 22px;
+    line-height: 1;
+    transition-duration: .2s;
+    &::before {
+        @if ($icon) {
+            @include icon($icon);
+        }
+        padding-right: map-get-deep($spacing, 'h', 'tiny');
+    }
+    &:hover {
+        background-color: desaturate($bg, 20);
+        border-bottom-color: desaturate($bg, 20);
+        transition-duration: .3s;
+    }
+}
