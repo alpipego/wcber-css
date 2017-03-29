@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             default: {
                 options: {
                     sourceMap: true,
-                    includePaths: ['src']
+                    includePaths: ['src', 'src/elements']
                 },
                 files: [{
                     expand: true,
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= path.tmp %>',
                     src: '*.css',
-                    dest: '<%= path.dest %>',
+                    dest: '<%= path.dist %>',
                     ext: '.css',
                     extDot: 'last'
                 }]
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
 
         clean: {
             default: ['<%= path.tmp %>/*'],
-            build: ['<%= path.tmp %>/*', '<%= path.dest %>/*'],
+            build: ['<%= path.tmp %>/*', '<%= path.dist %>/*'],
             options: {
                 force: true
             }
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
                 tasks: ['styles']
             },
             styles: {
-                files: '<%= path.src %>/**/*.scss',
+                files: ['<%= path.src %>/*.scss', '<%= path.src %>/**/*.scss'],
                 tasks: ['styles']
             }
         },
@@ -87,12 +87,14 @@ module.exports = function (grunt) {
             dev: {
                 bsFiles: {
                     src: [
-                        'dest/**/*.css'
+                        '<%= path.dist %>/*.css',
+                        '<%= path.dist %>/**/*.css'
                     ]
                 },
                 options: {
                     watchTask: true,
-                    // proxy: 'stage.nambaheins.dvlp',
+                    server: '<%= path.dist %>',
+                    proxy: false,
                     online: true,
                     open: false,
                     notify: true
