@@ -25,6 +25,7 @@ $navConfig: (
     transition: height .3s, background-color .25s ease-in;
     width: 100vw;
     max-width: 600px;
+    overflow-x: hidden;
     font: {
         family: 'PT Mono', monospace;
         weight: normal;
@@ -33,6 +34,11 @@ $navConfig: (
         background-color: map-get-deep($navConfig, 'colors', 'base');
         height: 100vh;
         transition: height .3s, background-color .1s;
+        .menu-toggle {
+            &::before {
+                @include icon('times');
+            }
+        }
         .icon {
             &-bars {
                 display: none;
@@ -160,12 +166,19 @@ $navConfig: (
         height: map-get-deep($navConfig, 'size', 'icon');
         line-height: map-get-deep($navConfig, 'size', 'icon');
         color: map-get-deep($colors, 'light');
+        position: relative;
+        &::before {
+            @include icon('bars');
+            @include fullElement;
+            left: map-get-deep($navConfig, 'size', 'icon') * -1;
+        }
         .icon {
             width: map-get-deep($navConfig, 'size', 'icon');
             height: map-get-deep($navConfig, 'size', 'icon');
             vertical-align: inherit;
             margin-right: map-get-deep($spacing, 'h', 'tiny');
-            fill: map-get-deep($colors, 'light');
+            color: map-get-deep($colors, 'light');
+            visibility: hidden;
             &-close {
                 display: none;
             }
@@ -180,10 +193,18 @@ $navConfig: (
     height: map-get-deep($navConfig, 'size', 'icon');
     padding: 2px;
     display: inline !important;
+    &::before {
+        @include icon('chevron-down');
+        @include fullElement;
+        height: map-get-deep($navConfig, 'size', 'icon') - 4px;
+        line-height: map-get-deep($navConfig, 'size', 'icon') - 4px;
+        color: map-get-deep($colors, 'light');
+        transition: color .2s;
+    }
     &:hover {
-        .icon {
-            fill: map-get-deep($colors, 'solarized', 'triad');
-            transition: fill .2s;
+        &::before {
+            color: map-get-deep($colors, 'solarized', 'triad');
+            transition: color .2s;
         }
     }
     &.toggled-on {
@@ -192,8 +213,7 @@ $navConfig: (
     .icon {
         width: map-get-deep($navConfig, 'size', 'icon');
         height: map-get-deep($navConfig, 'size', 'icon') - 4px;
-        fill: map-get-deep($colors, 'light');
-        transition: fill .2s;
+        visibility: hidden;
     }
 }
 
