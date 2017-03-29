@@ -1,0 +1,239 @@
+$navConfig: (
+    'size': (
+        'icon': 40px,
+        'toggleHeight': 40px + (2 * map-get-deep($spacing, 'h', 'tiny')),
+    ),
+    'colors': (
+        'base': map-get-deep($colors, 'solarized', 'bg', 'default'),
+        'level-2': map-get-deep($colors, 'solarized', 'bg', 'secondary'),
+    )
+);
+
+.site-header {
+    padding-top: map-get-deep($navConfig, 'size', 'toggleHeight');
+}
+
+.navigation-top {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.main-navigation {
+    padding-top: map-get-deep($spacing, 'h', 'tiny');
+    height: map-get-deep($navConfig, 'size', 'toggleHeight');
+    transition: height .3s, background-color .25s ease-in;
+    width: 100vw;
+    max-width: 600px;
+    font: {
+        family: 'PT Mono', monospace;
+        weight: normal;
+    }
+    &.toggled-on {
+        background-color: map-get-deep($navConfig, 'colors', 'base');
+        height: 100vh;
+        transition: height .3s, background-color .1s;
+        .icon {
+            &-bars {
+                display: none;
+            }
+            &-close {
+                display: block;
+            }
+        }
+        [class^="menu"][class$="container"] {
+            opacity: 1;
+            pointer-events: all;
+            height: calc(100vh - #{map-get-deep($navConfig, 'size', 'toggleHeight')});
+            overflow: {
+                y: scroll;
+                x: hidden;
+            }
+            width: calc(100% + 30px);
+            padding-right: 30px;
+            transition: opacity .2s .2s;
+            .menu {
+                & > .menu-item {
+                    min-height: map-get-deep($navConfig, 'size', 'icon');
+                }
+            }
+        }
+    }
+    [class^="menu"][class$="container"],
+    .sub-menu {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .sub-menu {
+        background-color: map-get-deep($navConfig, 'colors', 'level-2');
+        .menu-item {
+            display: none;
+            a {
+                display: none;
+            }
+        }
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        vertical-align: middle;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.menu {
+    //width: 100vw;
+    &-item {
+        display: inline-block;
+        width: 100%;
+        line-height: map-get-deep($navConfig, 'size', 'icon');
+        text-align: center;
+        color: map-get-deep($colors, 'light');
+        padding: {
+            top: map-get-deep($spacing, 'h', 'tiny');
+            bottom: map-get-deep($spacing, 'h', 'tiny');
+        }
+        position: relative;
+        &::after {
+            content: '';
+            width: 18%;
+            display: block;
+            height: 1px;
+            background-color: map-get-deep($colors, 'light');
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &:last-child {
+            margin-bottom: 0;
+            &::after {
+                display: none;
+            }
+        }
+        a {
+            color: map-get-deep($colors, 'solarized', 'content');
+            &:hover {
+                border-bottom-color: transparent;
+                color: map-get-deep($colors, 'solarized', 'monotone') !important;
+            }
+            .icon-angle-down {
+                display: none;
+            }
+        }
+        &:first-child {
+            a {
+                color: map-get-deep($colors, 'solarized', 'tetrad');
+            }
+        }
+        &:last-child {
+            a {
+                color: map-get-deep($colors, 'solarized', 'split-comp');
+            }
+        }
+        a[href*="tickets"] {
+            color: map-get-deep($colors, 'solarized', 'complement');
+            & ~ .sub-menu {
+                a {
+                    color: map-get-deep($colors, 'solarized', 'split-comp');
+                }
+            }
+        }
+        a[href*="sponsors"] {
+            color: map-get-deep($colors, 'solarized', 'tetrad-green');
+            & ~ .sub-menu {
+                a {
+                    color: map-get-deep($colors, 'solarized', 'split-comp');
+                }
+            }
+        }
+    }
+    &-toggle {
+        margin-bottom: map-get-deep($spacing, 'h', 'tiny');
+        padding: {
+            top: 0;
+            bottom: 0;
+        }
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        height: map-get-deep($navConfig, 'size', 'icon');
+        line-height: map-get-deep($navConfig, 'size', 'icon');
+        color: map-get-deep($colors, 'light');
+        .icon {
+            width: map-get-deep($navConfig, 'size', 'icon');
+            height: map-get-deep($navConfig, 'size', 'icon');
+            vertical-align: inherit;
+            margin-right: map-get-deep($spacing, 'h', 'tiny');
+            fill: map-get-deep($colors, 'light');
+            &-close {
+                display: none;
+            }
+        }
+    }
+}
+
+.dropdown-toggle {
+    position: absolute;
+    top: map-get-deep($spacing, 'h', 'tiny');
+    width: map-get-deep($navConfig, 'size', 'icon');
+    height: map-get-deep($navConfig, 'size', 'icon');
+    padding: 2px;
+    display: inline !important;
+    &:hover {
+        .icon {
+            fill: map-get-deep($colors, 'solarized', 'triad');
+            transition: fill .2s;
+        }
+    }
+    &.toggled-on {
+        transform: rotate(180deg);
+    }
+    .icon {
+        width: map-get-deep($navConfig, 'size', 'icon');
+        height: map-get-deep($navConfig, 'size', 'icon') - 4px;
+        fill: map-get-deep($colors, 'light');
+        transition: fill .2s;
+    }
+}
+
+.sub-menu {
+    &.toggled-on {
+        height: auto;
+        opacity: 1;
+        pointer-events: all;
+        transition: height .2s;
+        .menu-item {
+            min-height: map-get-deep($navConfig, 'size', 'icon');
+            display: block;
+            a {
+                display: initial;
+                color: map-get-deep($colors, 'solarized', 'monotone');
+            }
+        }
+    }
+}
+
+.main-navigation:not(.toggled-on) {
+    .sub-menu {
+        // explicitly set this
+        pointer-events: none;
+    }
+}
+
+.menu-scroll-down {
+    .icon {
+        display: none;
+    }
+}
+
+.skip-link {
+    background-color: map-get-deep($navConfig, 'colors', 'base');
+    height: map-get-deep($navConfig, 'size', 'toggleHeight');
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: map-get-deep($navConfig, 'colors', 'base');
+    width: 100%;
+    z-index: 0;
+}

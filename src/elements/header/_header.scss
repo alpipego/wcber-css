@@ -1,0 +1,33 @@
+$header: (
+    'color': (
+        'text': map-get-deep($colors, 'light'),
+    ),
+);
+.site-header {
+    min-height: 33vh;
+    position: relative;
+}
+
+.wp-custom-header {
+    @include fullElement;
+    overflow: hidden;
+    &::after {
+        content: "";
+        @include fullElement;
+        background-color: rgba(#000, .2);
+    }
+    img {
+        width: auto;
+        min-width: 100%;
+        max-width: unset;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        object-fit: cover;
+    }
+}
+
+@import "branding";
+@import "navigation";

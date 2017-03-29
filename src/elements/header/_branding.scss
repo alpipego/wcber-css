@@ -1,0 +1,100 @@
+.site {
+    &-branding {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: map-get-deep($spacing, 'v', 'tiny');
+        color: map-get-deep($header, 'color', 'text');
+    }
+    &-title {
+        position: relative;
+        margin: {
+            top: 0;
+            bottom: 1rem;
+        }
+
+        //&::before {
+        //    content: "$_";
+        //    position: absolute;
+        //    line-height: 1;
+        //    bottom: 0;
+        //    left: 0;
+        //}
+        a {
+            color: transparent;
+            display: block;
+            position: relative;
+            width: 294px;
+            white-space: nowrap;
+            margin: {
+                right:auto;
+                left:auto;
+            }
+            font: {
+                family: 'PT Mono', monospace;
+                weight: normal;
+                size: 2rem;
+            }
+            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-font-feature-settings: "kern" 1;
+            text-rendering:optimizeLegibility;
+            &::before {
+                content: "";
+                background: {
+                    image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InN2ZzIiIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTU1Ljg2NXB4Ig0KCSBoZWlnaHQ9IjY1NC4yNXB4IiB2aWV3Qm94PSIxNDcuMzQ0IDU0LjQyMyA1NTUuODY1IDY1NC4yNSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAxNDcuMzQ0IDU0LjQyMyA1NTUuODY1IDY1NC4yNSINCgkgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNy45MTU0MjEsOTUuMjMzODc1KSI+DQoJPGcgdHJhbnNmb3JtPSJtYXRyaXgoMC44ODk5MzgzNywwLDAsMC44ODk5MzgzNyw1Ni41MjU3NSwtNi41NDYxOSkiPg0KCQk8cGF0aCBmaWxsPSIjZjlmYWY0IiBkPSJNMjYxLjc5OSw0NjcuMTQ1YzAsNTIuNDE1LDMwLjQ2LDk3LjcyLDc0LjYzOSwxMTkuMThsLTYzLjE3MS0xNzMuMDcyDQoJCQlDMjY1LjkyLDQyOS43MjMsMjYxLjc5OSw0NDcuOTQ4LDI2MS43OTksNDY3LjE0NSBNNDgzLjYyMyw0NjAuNDY0YzAtMTYuMzctNS44OC0yNy42OTktMTAuOTE5LTM2LjUxOQ0KCQkJYy02LjcxMS0xMC45MTQtMTMuMDAzLTIwLjE0NS0xMy4wMDMtMzEuMDU5YzAtMTIuMTc0LDkuMjI2LTIzLjUwMywyMi4yMzQtMjMuNTAzYzAuNTksMCwxLjE0OCwwLjA3MSwxLjcxNiwwLjEwNg0KCQkJYy0yMy41NTgtMjEuNTg3LTU0Ljk1LTM0Ljc2OS04OS40MjctMzQuNzY5Yy00Ni4yNjQsMC04Ni45NjQsMjMuNzQtMTEwLjY0Niw1OS42ODNjMy4xMTIsMC4xMDMsNi4wNDIsMC4xNjcsOC41MjUsMC4xNjcNCgkJCWMxMy44NDgsMCwzNS4yOTctMS42ODMsMzUuMjk3LTEuNjgzYzcuMTM2LTAuNDIxLDcuOTc2LDEwLjA2OSwwLjg0NCwxMC45MTRjMCwwLTcuMTc3LDAuODM4LTE1LjE1MiwxLjI1NWw0OC4yMiwxNDMuNDQ2DQoJCQlsMjguOTgzLTg2LjkxNmwtMjAuNjMyLTU2LjUzYy03LjEzNi0wLjQxNy0xMy44ODgtMS4yNTUtMTMuODg4LTEuMjU1Yy03LjEzNi0wLjQyNC02LjMwMS0xMS4zMzYsMC44MzktMTAuOTE0DQoJCQljMCwwLDIxLjg2NiwxLjY4MywzNC44NzgsMS42ODNjMTMuODQ5LDAsMzUuMjk4LTEuNjgzLDM1LjI5OC0xLjY4M2M3LjEzNS0wLjQyMSw3Ljk4LDEwLjA2OSwwLjg0MywxMC45MTQNCgkJCWMwLDAtNy4xODUsMC44MzgtMTUuMTUyLDEuMjU1bDQ3Ljg1NSwxNDIuMzUxbDEzLjIxLTQ0LjEyOEM0ODAuMjYxLDQ4Ni4wNjcsNDgzLjYyMyw0NzEuNzk3LDQ4My42MjMsNDYwLjQ2NCBNMzk2LjU1MSw0NzguNzI4DQoJCQlsLTM5LjczNiwxMTUuNDU3YzExLjg2NiwzLjQ4NywyNC40MTQsNS4zOTUsMzcuNDA5LDUuMzk1YzE1LjQyNSwwLDMwLjIxNy0yLjY2Miw0My45NzctNy41MDgNCgkJCWMtMC4zNDctMC41NjYtMC42NzgtMS4xNy0wLjk0Ni0xLjgyNkwzOTYuNTUxLDQ3OC43MjhMMzk2LjU1MSw0NzguNzI4eiBNNTEwLjQzMSw0MDMuNjE1YzAuNTczLDQuMjE2LDAuODkzLDguNzQxLDAuODkzLDEzLjYxNg0KCQkJYzAsMTMuNDM0LTIuNTE5LDI4LjU0Mi0xMC4wNzQsNDcuNDMxbC00MC40NDYsMTE2Ljk0M2MzOS4zNzUtMjIuOTU0LDY1Ljg0NS02NS42MDUsNjUuODQ1LTExNC40NjENCgkJCUM1MjYuNjQ5LDQ0NC4xMiw1MjAuNzY2LDQyMi40NzQsNTEwLjQzMSw0MDMuNjE1Ii8+DQoJCTxnIHRyYW5zZm9ybT0ibWF0cml4KDEuMjUsMCwwLC0xLjI1LDMyMC43Mjk5Niw2MDguODQ1MTkpIj4NCgkJCTxwYXRoIGZpbGw9IiNmOWZhZjQiIGQ9Ik0tNjQuNywxMTMuMzZjMC02OC4xLDU1LjQtMTIzLjUwMSwxMjMuNDk2LTEyMy41MDFjNjguMSwwLDEyMy40OTcsNTUuNDAxLDEyMy40OTcsMTIzLjUwMQ0KCQkJCWMwLDY4LjA5Ni01NS4zOTcsMTIzLjQ5Mi0xMjMuNDk3LDEyMy40OTJDLTkuMywyMzYuODUzLTY0LjcsMTgxLjQ1Ny02NC43LDExMy4zNiBNLTU5LjAzNCwxMTMuMzYNCgkJCQljMCw2NC45NzUsNTIuODU5LDExNy44MywxMTcuODI5LDExNy44M2M2NC45NywwLDExNy44MzktNTIuODU1LDExNy44MzktMTE3LjgzUzEyMy43NjUtNC40NzgsNTguNzk2LTQuNDc4DQoJCQkJQy02LjE3NS00LjQ3OC01OS4wMzQsNDguMzg2LTU5LjAzNCwxMTMuMzYiLz4NCgkJPC9nPg0KCQk8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjI1LDAsMCwtMS4yNSw1NTcuMTM4ODMsMjMuMTUwNjg1KSI+DQoJCQk8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmOWZhZjQiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBkPSJNLTEwMi41MjYsMTkuNjQ5bC0yNzMuNzc2LTQ5NC44NTENCgkJCQljMCwwLTEuMTgzLTIuMjY4LDEuMzMtMi43NmwyOTIuMDctNTcuMTI3YzAsMCwyLjUxNC0wLjQ5Miw0Ljg4MywwLjQ4MWwxOTIuNDg0LDc5LjA3OWMwLDAsMi4zNjksMC45NzQsMS4wNTcsMy4xNzENCgkJCQlMLTE3NC4wNSw0NS43MjciLz4NCgkJPC9nPg0KCTwvZz4NCjwvZz4NCjwvc3ZnPg0K");
+                    repeat: no-repeat;
+                    position: center;
+                    size: contain;
+                }
+                display: block;
+                max-width: 80vw;
+                min-height: 200px;
+                max-height: 33vh;
+                margin: {
+                    right: auto;
+                    left: auto;
+                }
+            }
+            &::after {
+                content: ">_\2009 Berlin 2017";
+                color: map-get-deep($header, 'color', 'text');
+                white-space: nowrap;
+                overflow: hidden;
+                border-right: 18px solid map-get-deep($colors, 'cta');
+                animation: typing 2s 1s steps(12, end) forwards, blink-caret 1s step-end infinite;
+                width: 60px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                line-height: 1;
+                letter-spacing: -1px;
+            }
+            &:hover {
+                border-bottom-color: transparent;
+            }
+        }
+    }
+    &-description {
+
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 60px;
+    }
+    to {
+        width: 274px;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: map-get-deep($header, 'color', 'text');
+    }
+}
