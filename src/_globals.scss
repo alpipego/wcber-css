@@ -1,4 +1,4 @@
-$medium: rem-calc($medium);
+$medium: rem-calc(800);
 $padding: map-get-deep($spacing, 'h', 'medium');
 $padding-sm: map-get-deep($spacing, 'h', 'small');
 
@@ -17,19 +17,18 @@ body {
     font: {
         size: $rem-base;
         family: $body;
+        weight: 300;
     }
     background-color: map-get-deep($colors, 'bg', 'body');
     line-height: $base-line-height;
     color: map-get-deep($colors, 'dark');
-    position: relative;
-    margin: 0;
     min-height: 100%;
-    transition: padding-top .75s;
-    &.admin-bar {
-        padding-top: 32px;
-        @include mobile() {
-            padding-top: 45px;
-        }
+    position: relative; // sticky footer
+    @include media(600) {
+        font-size: 2.7vw;
+    }
+    @include media(815) {
+        font-size:22px;
     }
 }
 
@@ -40,6 +39,7 @@ h4,
 h5,
 h6 {
     font: {
+        family: $heading;
         weight: 500;
     }
     margin: {
@@ -54,7 +54,6 @@ h6 {
 }
 
 h1 {
-    font-weight: 500;
     margin: {
         top: 15px;
         bottom: 15px;
@@ -130,6 +129,12 @@ a {
             border-bottom-color: transparent;
         }
     }
+    img {
+        &[src$="jpg"],
+        &[src$="jpeg"] {
+            vertical-align: top;
+        }
+    }
 }
 
 .screen-reader-text {
@@ -145,9 +150,9 @@ section {
     @include grid(100);
 }
 
-.header,
+.site-header,
 .footer,
-.main {
+.site-main {
     overflow-x: hidden;
     &-inner {
         padding: {
@@ -167,3 +172,6 @@ section {
     padding-bottom: map-get-deep($spacing, 'v', 'large');
 }
 
+.svg-fallback {
+    display: none;
+}
