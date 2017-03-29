@@ -4,8 +4,16 @@ body {
         .skip-link {
             top: 32px;
             @media screen and (max-width: 782px) {
-                top: 46px;
+                top: 0;
             }
+        }
+    }
+}
+
+html {
+    #wpadminbar {
+        @media screen and (max-width: 782px) {
+            top: -46px;
         }
     }
 }
