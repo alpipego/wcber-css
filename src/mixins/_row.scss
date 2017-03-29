@@ -1,14 +1,9 @@
-@mixin row() {
+// $row-width is globally defined in meta/variables
+@mixin row($row-width: $row-width) {
     width: 100%;
     margin: {
         left: auto;
         right: auto;
     }
     max-width: rem-calc($row-width);
-    //@include media(800) {
-    //    padding: {
-    //        left: map-get-deep($spacing, 'h', 'medium');
-    //        right: map-get-deep($spacing, 'h', 'medium');
-    //    }
-    //}
 }

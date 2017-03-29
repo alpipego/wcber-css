@@ -7,7 +7,8 @@ $base-font-size: 100% !default;
 $base-line-height: 1.5 !default;
 
 $colors: (
-    cta: #e2001a,
+    cta: #043643,
+    //cta: #ffde00,
     dark: #333,
     light: #f9faf4,
     score: #e2c340,
@@ -17,22 +18,26 @@ $colors: (
         nav: #a7a7a7,
         postMeta: #999,
     ),
-    bg: (
-        body: #f4f1e9,
-        matchdays: #e0e1e2,
-        odds: #dedbd3,
-        selected: #787875,
-        preHeader: #e2e3dd,
-        footer: #e2e3dd,
-        box: rgba(#000, .7),
+    solarized: (
+        'bg': (
+            'default': #043643,
+            'secondary': #002b37,
+            'light': #eee8d4,
+        ),
+        'border': #eee8d4,
+        'content': #829496,
+        'split-comp': #b68a00,
+        'complement': #cd4a00,
+        'triad': #de3027,
+        'tetrad': #d53182,
+        'monotone': #1c89d5,
+        'tetrad-green': #859a00,
     ),
-    ranking: (
-        even: #edeeef,
-        odd: #f4f5f6,
-        border: #e2e3dd,
-        gold: rgba(242,215,50,1),
-        silver: rgba(160,160,160,1),
-        bronze: rgba(223,182,103,1),
+    bg: (
+        body: #fff,
+        header: #fff,
+        footer: #fff,
+        box: rgba(#000, .7),
     ),
     social: (
         twitter: #069ff5,
@@ -44,38 +49,22 @@ $colors: (
         whatsapp: #39da4b,
     ),
     forms: (
-        border: #d9d9d9,
-        bg: #fff,
+        border: (
+            'default': #d9d9d9,
+            'selected': #1c89d5,
+        ),
+        bg: (
+            'default': #fff,
+            'selected': #fff,
+        ),
         error: #e2001a,
         success: #009521,
         placeholder: #aeaeae,
     ),
-    bet: (
-        won: #009521,
-        notWon: #e2001a,
-    ),
-    'rank': (
-        'up': #009521,
-        'down': #e2001a,
-        'neutral': #3498db,
-    ),
     lines: #ededed,
-    fullWidth: #f2f2f2,
 );
 
 $spacing: (
-    header: (
-        nav: 32px,
-        main: 100px,
-    ),
-    slider: (
-        height: 550px,
-        boxWidth: 570px,
-    ),
-    footer: (
-        topNav: 80px,
-        bottomNav: 94px,
-    ),
     button: (
         height: 40px,
         hpadding: 22px,
@@ -90,15 +79,10 @@ $spacing: (
     h: (
         medium: 30px,
         small: 15px,
-        tiny: 7px,
+        tiny: 7.5px,
     ),
     image: (
-        third: 19/37,
-        half: 25/57,
     ),
-    icon: 48px,
-    iconBox: 80px,
-    fullWidth: 190px,
 );
 
 $font: (
@@ -110,10 +94,6 @@ $font: (
     headingLarge: (
         size: 36px,
         line: 48px,
-    ),
-    headingSpecial: (
-        size: 24px,
-        weight: 500,
     ),
     meta: (
         size: 13px,
@@ -133,6 +113,7 @@ $font: (
 );
 
 $mq: (
+    menu: 615,
     sidebar: 880,
     content: (
         small: 660,
@@ -143,22 +124,8 @@ $mq: (
 /**
  * FONTS
  */
-$sans: 'PT Sans Narrow', sans-serif;
+$sans: Roboto, sans-serif;
 $serif: Georgia, serif;
 $body: $sans;
 $heading: $sans;
-
-/**
- * OTHER
- */
-
-$adminbar: (
-    default: 32px,
-    mobile: 46px,
-);
-
-/**
- * PSEUDO MEDIA QUERIES
- */
-
-$medium: 800px;
+$code: 'PT Mono', monospace;

@@ -1,0 +1,13 @@
+.site-main {
+    padding: {
+        top:map-get-deep($spacing, 'v', 'small');
+        right:map-get-deep($spacing, 'h', 'small');
+        left:map-get-deep($spacing, 'h', 'small');
+    }
+    @include row(800);
+}
+
+@import "page";
+@import "entry";
+@import "comments";
+@import "post-navigation";

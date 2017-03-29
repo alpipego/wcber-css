@@ -1,0 +1,28 @@
+.post-navigation {
+    margin: {
+        top: map-get-deep($spacing, 'v', 'small');
+        bottom: map-get-deep($spacing, 'v', 'small');
+    }
+    .nav {
+        &-links {
+            .icon {
+                display: none;
+            }
+        }
+        &-subtitle {
+            display: block;
+            border-bottom: 2px solid map-get-deep($colors, 'dark');
+            margin-bottom: 5px;
+        }
+        &-title {
+            font: {
+                size: 1.2rem;
+                weight: 500;
+            }
+        }
+        &-next {
+            text-align: right;
+            margin-top: map-get-deep($spacing, 'v', 'tiny');
+        }
+    }
+}

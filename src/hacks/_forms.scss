@@ -1,0 +1,33 @@
+// overwrites for grunion - jetpack - contactforms
+.contact-form {
+    input {
+        &[type="text"],
+        &[type="email"] {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        &[type="submit"] {
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'triad');
+            }
+        }
+    }
+    textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        resize: vertical;
+    }
+    label,
+    label.radio {
+        line-height: 1.4;
+        position: static;
+        font: {
+            size: 1rem!important;
+            weight: 300!important;
+        }
+
+    }
+    > div {
+        margin-bottom: map-get-deep($spacing, 'h', 'small');
+    }
+}

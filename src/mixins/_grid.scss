@@ -1,4 +1,4 @@
-@mixin grid($pct, $flex: false, $float: left, $position: relative)
+@mixin grid($pct: 100, $flex: false, $float: left, $position: relative)
 {
     $width: 0;
 

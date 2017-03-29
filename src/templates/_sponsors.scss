@@ -1,0 +1,21 @@
+.wcorg {
+    &-sponsors {
+        [class^="wcorg-sponsor-level"] {
+            h2 {
+                text-align: center;
+                font-size: 2rem;
+                margin: {
+                    top: 1.6em;
+                    bottom: 1.3em;
+                }
+            }
+        }
+        margin-bottom: map-get-deep($spacing, 'v', 'medium');
+        & ~ #tix-attendees {
+            margin-top: map-get-deep($spacing, 'v', 'small');
+        }
+    }
+    &-sponsor {
+        padding-top: 1rem;
+    }
+}

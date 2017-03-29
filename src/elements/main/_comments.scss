@@ -1,0 +1,163 @@
+$comments: (
+    'offset-top': 24px,
+    'avatar-outer-width': 120px,
+);
+
+.comments {
+    &-area {
+        margin-top: map-get-deep($spacing, 'v', 'small');
+    }
+    @include media(815) {
+        margin-top: map-get-deep($spacing, 'v', 'medium');
+    }
+}
+
+.comment {
+    &-list {
+        padding-left: 0;
+        list-style-type: none;
+        .children {
+            list-style-type: none;
+        }
+    }
+    &-author {
+        @include media(815) {
+            padding-top: map-get-deep($comments, 'offset-top');
+            margin-top: map-get-deep($comments, 'offset-top') * -1;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            @include media(815) {
+                float: left;
+            }
+        }
+        .fn {
+            display: block;
+            @include code;
+            @include media(815) {
+                margin: {
+                    top: map-get-deep($comments, 'offset-top');
+                    left: map-get-deep($comments, 'avatar-outer-width');
+                }
+                width: calc(100% - #{map-get-deep($comments, 'avatar-outer-width')});
+            }
+            a {
+                color: map-get-deep($colors, 'solarized', 'split-comp');
+                &:hover {
+                    color: map-get-deep($colors, 'solarized', 'complement');
+                }
+            }
+        }
+    }
+    &-metadata {
+        display: block;
+        @include code(2);
+        @include media(815) {
+            margin-left: map-get-deep($comments, 'avatar-outer-width');
+            width: calc(100% - #{map-get-deep($comments, 'avatar-outer-width')});
+        }
+        a {
+            color: map-get-deep($colors, 'solarized', 'monotone');
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'tetrad-green');
+            }
+        }
+    }
+    &-meta {
+        @include media(815) {
+            padding-bottom: map-get-deep($comments, 'offset-top');
+        }
+        .says {
+            display: none;
+        }
+    }
+    &-body {
+        margin-top: map-get-deep($spacing, 'v', 'small');
+        .reply {
+            .icon {
+                display: none;
+            }
+        }
+    }
+    &-content {
+        margin: {
+            top: map-get-deep($spacing, 'h', 'small');
+            bottom: map-get-deep($spacing, 'h', 'small');
+        }
+        a {
+            border-bottom-color: map-get-deep($colors, 'dark');
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'monotone');
+                border-bottom-color: map-get-deep($colors, 'solarized', 'monotone');
+            }
+        }
+    }
+    &-reply-link {
+        @include readMoreButton($color: map-get-deep($colors, 'solarized', 'bg', 'default'), $icon: false);
+    }
+    &-respond {
+        margin-top: map-get-deep($spacing, 'v', 'small');
+        textarea {
+            width: 100%;
+            resize: vertical;
+        }
+        label {
+            @include code;
+            line-height: 1.4;
+            color: map-get-deep($colors, 'solarized', 'split-comp');
+            &::before {
+                color: map-get-deep($colors, 'solarized', 'content');
+            }
+            .required {
+                color: map-get-deep($colors, 'solarized', 'triad');
+            }
+        }
+        textarea,
+        input {
+            width: 100%;
+            border-color: map-get-deep($colors, 'solarized', 'bg', 'default');
+            padding-left: 35px;
+            font-family: $code;
+            &:focus {
+                background-color: map-get-deep($colors, 'solarized', 'bg', 'light');
+                border-color: map-get-deep($colors, 'solarized', 'bg', 'default') !important;
+                color: map-get-deep($colors, 'solarized', 'monotone');
+            }
+        }
+        .form-submit {
+            input {
+                padding-left: map-get-deep($spacing, 'h', 'small');
+                &:hover {
+                    background-color: map-get-deep($colors, 'solarized', 'bg', 'light');
+                    border-color: map-get-deep($colors, 'solarized', 'bg', 'default') !important;
+                    color: map-get-deep($colors, 'solarized', 'monotone');
+                }
+            }
+        }
+    }
+    &-form {
+        &-author {
+            label {
+                &::before {
+                    content: "2"
+                }
+            }
+        }
+        &-email {
+            label {
+                &::before {
+                    content: "3"
+                }
+            }
+        }
+        &-url {
+            label {
+                &::before {
+                    content: "4"
+                }
+            }
+        }
+    }
+}

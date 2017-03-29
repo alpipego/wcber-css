@@ -1,0 +1,5 @@
+.home {
+    article {
+        margin-bottom: map-get-deep($spacing, 'v', 'small');
+    }
+}

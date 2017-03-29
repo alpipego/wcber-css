@@ -1,0 +1,56 @@
+.entry {
+    &-meta {
+        @include code;
+        margin-bottom: map-get-deep($spacing, 'h', 'small');
+        a {
+            color: map-get-deep($colors, 'solarized', 'split-comp');
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'triad');
+            }
+        }
+        time {
+            &.published {
+                @include media(360) {
+                    margin-left: -10px;
+                }
+                & ~ .updated {
+                    margin-left: 10px;
+                    color: map-get-deep($colors, 'solarized', 'content');
+                    &::before {
+                        content: "(Update ";
+                    }
+                    &::after {
+                        content: ")";
+                    }
+                }
+            }
+        }
+        .byline {
+            a {
+                color: map-get-deep($colors, 'solarized', 'complement');
+            }
+        }
+        .post-edit-link {
+            float: right;
+        }
+    }
+    &-content {
+        a {
+            border-bottom-color: map-get-deep($colors, 'dark');
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'monotone');
+                border-bottom-color: map-get-deep($colors, 'solarized', 'monotone');
+            }
+        }
+    }
+}
+
+article {
+    &.category-sponsors {
+        img {
+            max-height: 150px;
+            width: auto;
+            height: auto;
+        }
+    }
+}
