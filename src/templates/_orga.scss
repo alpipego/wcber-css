@@ -1,0 +1,34 @@
+$orga: (
+    'avatar': (
+        'inner-width': 100px,
+        'outer-width': 120px,
+    ),
+);
+.wcorg {
+    &-organizers {
+
+    }
+    &-organizer {
+        width: 100%;
+        float: left;
+        margin-top: map-get-deep($spacing, 'v', 'tiny');
+        &-description {
+            width: 100%;
+            float: left;
+        }
+        .avatar {
+            border-radius: 50%;
+            @include media(500) {
+                width: map-get-deep($orga, 'avatar', 'inner-width');
+                float: left;
+            }
+        }
+        p {
+            @include media(500) {
+                width: calc(100% - #{map-get-deep($orga, 'avatar', 'outer-width')});
+                float: right;
+                margin-top: 0;
+            }
+        }
+    }
+}

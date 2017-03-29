@@ -9,6 +9,7 @@ $footer: (
     font-size: 1rem !important;
     position: absolute;
     bottom: map-get-deep($footer, 'height') * -1;
+    bottom: 0;
     width: 100%;
     a {
         color: map-get-deep($colors, 'solarized', 'split-comp');

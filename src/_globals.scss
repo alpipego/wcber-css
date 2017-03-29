@@ -24,6 +24,7 @@ body {
     color: map-get-deep($colors, 'dark');
     min-height: 100%;
     position: relative; // sticky footer
+    padding-bottom: 64px;
     @include media(600) {
         font-size: 2.7vw;
     }
@@ -107,7 +108,7 @@ nav {
 img {
     max-width: 100%;
     height: auto;
-    width: 100%;
+    width: auto;
     -ms-interpolation-mode: bicubic;
 }
 
@@ -162,14 +163,8 @@ section {
     }
 }
 
-.main {
-    @include row();
-}
-
-.main-inner {
-    @include grid(100);
-    clear: both;
-    padding-bottom: map-get-deep($spacing, 'v', 'large');
+.site-main {
+    padding-bottom: map-get-deep($spacing, 'v', 'small');
 }
 
 .svg-fallback {

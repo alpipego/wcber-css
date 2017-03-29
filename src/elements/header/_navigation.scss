@@ -194,8 +194,9 @@ $navConfig: (
     padding: 2px;
     display: inline !important;
     &::before {
-        @include icon('chevron-down');
+        @include icon('angle-down');
         @include fullElement;
+        font-size: 1.5rem;
         height: map-get-deep($navConfig, 'size', 'icon') - 4px;
         line-height: map-get-deep($navConfig, 'size', 'icon') - 4px;
         color: map-get-deep($colors, 'light');
