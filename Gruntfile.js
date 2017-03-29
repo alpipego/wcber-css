@@ -47,7 +47,7 @@ module.exports = function (grunt) {
                     ],
                     map: {
                         prev: '<%= path.tmp %>',
-                        inline: false
+                        inline: true
                     }
                 },
                 files: [{
