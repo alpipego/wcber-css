@@ -1,0 +1,19 @@
+$footer: (
+    'height': 64px,
+);
+
+.site-footer {
+    background-color: map-get-deep($colors, 'solarized', 'bg', 'default');
+    padding: map-get-deep($spacing, 'v', 'tiny') map-get-deep($spacing, 'h', 'small');
+    color: map-get-deep($colors, 'solarized', 'content');
+    font-size: 1rem !important;
+    position: absolute;
+    bottom: map-get-deep($footer, 'height') * -1;
+    width: 100%;
+    a {
+        color: map-get-deep($colors, 'solarized', 'split-comp');
+        &:hover {
+            color: map-get-deep($colors, 'solarized', 'triad');
+        }
+    }
+}
