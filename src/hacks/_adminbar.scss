@@ -1,0 +1,11 @@
+body {
+    &.admin-bar {
+        .navigation-top,
+        .skip-link {
+            top: 32px;
+            @media screen and (max-width: 782px) {
+                top: 46px;
+            }
+        }
+    }
+}

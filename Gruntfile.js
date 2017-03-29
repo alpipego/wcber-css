@@ -58,6 +58,29 @@ module.exports = function (grunt) {
                     ext: '.css',
                     extDot: 'last'
                 }]
+            },
+            dist: {
+                options: {
+                    processors: [
+                        require('autoprefixer')({
+                            browsers: ['> 1%', 'Last 2 versions']
+                        }),
+                        require('css-mqpacker')({
+                            sort: true
+                        }),
+                        require('cssnano')({discardUnused: {fontFace: false}}),
+                        require('postcss-flexibility')
+                    ],
+                    map: false
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= path.tmp %>',
+                    src: '*.css',
+                    dest: '<%= path.dist %>',
+                    ext: '.css',
+                    extDot: 'last'
+                }]
             }
         },
 
@@ -105,5 +128,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('styles', ['sass', 'postcss:default']);
     grunt.registerTask('default', ['styles', 'browserSync', 'watch']);
-    grunt.registerTask('build', ['sass', 'postcss:default']);
+    grunt.registerTask('build', ['sass', 'postcss:dist']);
 };
