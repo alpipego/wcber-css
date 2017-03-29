@@ -2,7 +2,7 @@
     display: inline-block;
     border: 1px solid $color;
     color: $color;
-    padding: map-get-deep($spacing, 'h', 'small') 22px;
+    padding: 10px 18px;
     transition-duration: .2s;
     line-height: 1;
     &::before {
