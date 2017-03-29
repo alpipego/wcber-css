@@ -3,9 +3,4 @@
 @mixin icon($class, $fontFamily: FontAwesome, $map: $font-awesome) {
     content: map-get-deep($map, $class);
     font-family: $fontFamily;
-    opacity: 0;
-    .wf-fontawesome-n4-active & {
-        opacity: 1;
-        transition: opacity .1s;
-    }
 }
