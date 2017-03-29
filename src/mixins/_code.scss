@@ -1,0 +1,21 @@
+@mixin code($line: 1) {
+    background-color: map-get-deep($colors, 'solarized', 'bg', 'default');
+    color: map-get-deep($colors, 'solarized', 'content');
+    font: {
+        family: $code;
+        size: 16px !important;
+    }
+    padding: 1px 5px;
+    display: block;
+    &::before {
+        content: '#{$line}';
+        width: 25px;
+        color: rgba(map-get-deep($colors, 'solarized', 'content'), .6);
+        border-right: 1px solid map-get-deep($colors, 'solarized', 'content');
+        margin-right: 10px;
+        display: none;
+        @include media(360) {
+            display: inline-block;
+        }
+    }
+}
