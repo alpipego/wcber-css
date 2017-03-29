@@ -25,7 +25,7 @@ $navConfig: (
     transition: height .3s, background-color .25s ease-in;
     width: 100vw;
     max-width: 600px;
-    overflow-x: hidden;
+    overflow: hidden;
     font: {
         family: 'PT Mono', monospace;
         weight: normal;
