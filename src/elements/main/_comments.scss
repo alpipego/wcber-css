@@ -126,6 +126,18 @@ $comments: (
                 color: map-get-deep($colors, 'solarized', 'monotone');
             }
         }
+        input {
+            &[type="checkbox"] {
+                & ~ label {
+                    background-color: transparent;
+                    color: map-get-deep($colors, 'dark');
+                    font-family: $body;
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
         .form-submit {
             input {
                 padding-left: map-get-deep($spacing, 'h', 'small');
