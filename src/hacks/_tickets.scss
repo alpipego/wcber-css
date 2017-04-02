@@ -1,0 +1,59 @@
+.tix-order-summary {
+    width: 100%;
+    font: {
+        size: 1rem;
+    }
+    thead {
+        text-align: left;
+    }
+}
+
+.tix-attendee-form {
+    display: block;
+    tbody,
+    tr,
+    td {
+        display: block;
+    }
+    tr {
+        margin-bottom: map-get-deep($spacing, 'h', 'small');
+    }
+    .tix-left,
+    .tix-right {
+        width: 100% !important;
+        input,
+        select,
+        textarea {
+            width: 100% !important;
+        }
+    }
+    .tix-left, // this is the label
+    label {
+        line-height: 1.4;
+        position: static;
+        font: {
+            size: 1rem !important;
+            weight: 300 !important;
+        }
+        vertical-align: middle;
+    }
+    .tix-right {
+        label {
+            input[type="checkbox"],
+            input[type="radio"] {
+                display: inline-block;
+                width: auto !important;
+                margin-right: map-get-deep($spacing, 'h', 'small');
+            }
+        }
+    }
+}
+#tix {
+    input {
+        &[type="submit"] {
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'triad');
+            }
+        }
+    }
+}
