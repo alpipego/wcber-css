@@ -30,7 +30,6 @@ button,
 select,
 textarea {
     box-sizing: border-box;
-    appearance: none;
     vertical-align: inherit;
     border: 1px solid map-get-deep($colors, 'forms', 'border', 'default');
     border-radius: 0;
@@ -44,6 +43,11 @@ textarea {
         outline: none;
         border-color: map-get-deep($colors, 'forms', 'border', 'selected')!important;
     }
+}
+
+button,
+textarea {
+    appearance: none;
 }
 
 input,
@@ -84,14 +88,17 @@ button {
 select {
     background: {
         color: #fff;
-        image: url("../img/chevron-down.svg");
         size: 13px;
         repeat: no-repeat;
         position: right 10px center;
     }
-    font-weight: 300;
+    border-radius: 0!important;
+    border-top-left-radius: 0!important;
     height: map-get-deep($spacing, 'button', 'height');
     padding-right: map-get-deep($spacing, 'h', 'medium');
+    &::after {
+        @include icon('chevron-down');
+    }
     &.placeholder {
         color: map-get-deep($colors, 'forms', 'placeholder');
     }
