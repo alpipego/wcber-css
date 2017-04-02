@@ -1,8 +1,34 @@
-.tix-order-summary {
+.tix-info,
+.tix-error,
+.tix-notice {
+    border-radius: 0;
+    background-color: map-get-deep($colors, 'solarized', 'bg', 'default');
+    font-size: 1rem;
+}
+
+.tix-info {
+    color: map-get-deep($colors, 'solarized', 'tetrad-green');
+    border-color: map-get-deep($colors, 'solarized', 'tetrad-green');
+}
+
+.tix-error {
+    color: map-get-deep($colors, 'solarized', 'triad');
+    border-color: map-get-deep($colors, 'solarized', 'triad');
+}
+
+.tix-notice {
+    color: map-get-deep($colors, 'solarized', 'split-comp');
+    border-color: map-get-deep($colors, 'solarized', 'split-comp');
+}
+
+.tix-order-summary,
+.tix-ticket-form,
+.tix_tickets_table {
     width: 100%;
     font: {
-        size: 1rem;
+        size: 1.2rem;
     }
+    margin-bottom: map-get-deep($spacing, 'v', 'small');
     thead {
         text-align: left;
     }
@@ -48,6 +74,7 @@
         }
     }
 }
+
 #tix {
     input {
         &[type="submit"] {
