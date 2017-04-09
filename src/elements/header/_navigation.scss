@@ -104,9 +104,6 @@ $navConfig: (
                 & > .menu-item {
                     min-height: map-get-deep($navConfig, 'size', 'icon');
                 }
-                @include media(map-get-deep($navConfig, 'mq', 'large')) {
-                    @include row(map-get-deep($navConfig, 'mq', 'large') - 30px);
-                }
             }
         }
     }
@@ -121,6 +118,11 @@ $navConfig: (
             height: map-get-deep($navConfig, 'size', 'toggleHeight');
             opacity: 1;
             pointer-events: all;
+        }
+        .menu {
+            @include media(map-get-deep($navConfig, 'mq', 'large')) {
+                @include row(map-get-deep($navConfig, 'mq', 'large'));
+            }
         }
     }
     .sub-menu {
