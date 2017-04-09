@@ -1,0 +1,9 @@
+.single-featured-image-header,
+.page-header {
+    @include row(50rem * 16);
+    padding: {
+        right: map-get-deep($spacing, 'h', 'small');
+        left: map-get-deep($spacing, 'h', 'small');
+    }
+    margin-top: map-get-deep($spacing, 'v', 'small');
+}

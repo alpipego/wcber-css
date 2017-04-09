@@ -6,17 +6,48 @@ $navConfig: (
     'colors': (
         'base': map-get-deep($colors, 'solarized', 'bg', 'default'),
         'level-2': map-get-deep($colors, 'solarized', 'bg', 'secondary'),
-    )
+    ),
+    'mq': (
+        'large': 1460px,
+    ),
 );
+
+// fugly as hell
+@mixin showSub() {
+    height: auto;
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity .2s;
+    visibility: visible;
+    .menu-item {
+        min-height: map-get-deep($navConfig, 'size', 'icon');
+        display: block;
+        transition: 0s;
+        a {
+            display: initial;
+            color: map-get-deep($colors, 'solarized', 'monotone');
+            transition: 0s;
+            &:hover {
+                color: map-get-deep($colors, 'solarized', 'triad') !important;
+            }
+        }
+    }
+}
 
 .site-header {
     padding-top: map-get-deep($navConfig, 'size', 'toggleHeight');
+    @include media(map-get-deep($navConfig, 'mq', 'large')) {
+        margin-top: map-get-deep($navConfig, 'size', 'toggleHeight');
+    }
 }
 
 .navigation-top {
     position: fixed;
     top: 0;
     z-index: 1;
+    @include media(map-get-deep($navConfig, 'mq', 'large')) {
+        width: 100%;
+    }
 }
 
 .main-navigation {
@@ -30,10 +61,21 @@ $navConfig: (
         family: 'PT Mono', monospace;
         weight: normal;
     }
+    @include media(map-get-deep($navConfig, 'mq', 'large')) {
+        width: 100%;
+        max-width: unset;
+        height: map-get-deep($navConfig, 'size', 'toggleHeight');
+        padding-top: 0;
+        background-color: map-get-deep($colors, 'solarized', 'bg', 'default');
+        overflow: visible;
+    }
     &.toggled-on {
         background-color: map-get-deep($navConfig, 'colors', 'base');
         height: 100vh;
         transition: height .3s, background-color .1s;
+        @include media(map-get-deep($navConfig, 'mq', 'large')) {
+            height: map-get-deep($navConfig, 'size', 'toggleHeight');
+        }
         .menu-toggle {
             &::before {
                 @include icon('times');
@@ -62,6 +104,9 @@ $navConfig: (
                 & > .menu-item {
                     min-height: map-get-deep($navConfig, 'size', 'icon');
                 }
+                @include media(map-get-deep($navConfig, 'mq', 'large')) {
+                    @include row(map-get-deep($navConfig, 'mq', 'large') - 30px);
+                }
             }
         }
     }
@@ -70,6 +115,13 @@ $navConfig: (
         height: 0;
         opacity: 0;
         pointer-events: none;
+    }
+    [class^="menu"][class$="container"] {
+        @include media(map-get-deep($navConfig, 'mq', 'large')) {
+            height: map-get-deep($navConfig, 'size', 'toggleHeight');
+            opacity: 1;
+            pointer-events: all;
+        }
     }
     .sub-menu {
         background-color: map-get-deep($navConfig, 'colors', 'level-2');
@@ -86,6 +138,9 @@ $navConfig: (
         vertical-align: middle;
         display: flex;
         align-items: center;
+        @include media(map-get-deep($navConfig, 'mq', 'large')) {
+            display: none;
+        }
     }
 }
 
@@ -93,6 +148,7 @@ $navConfig: (
     //width: 100vw;
     &-item {
         display: inline-block;
+        vertical-align: middle;
         width: 100%;
         line-height: map-get-deep($navConfig, 'size', 'icon');
         text-align: center;
@@ -111,6 +167,18 @@ $navConfig: (
             position: relative;
             left: 50%;
             transform: translateX(-50%);
+        }
+        @include media(map-get-deep($navConfig, 'mq', 'large')) {
+            display: inline-block;
+            width: auto;
+            font-size: 1rem;
+            padding: {
+                right: map-get-deep($spacing, 'h', 'tiny');
+                left: map-get-deep($spacing, 'h', 'tiny');
+            }
+            &::after {
+                display: none;
+            }
         }
         &:last-child {
             margin-bottom: 0;
@@ -151,6 +219,48 @@ $navConfig: (
             & ~ .sub-menu {
                 a {
                     color: map-get-deep($colors, 'solarized', 'split-comp');
+                }
+            }
+        }
+        &-has-children {
+            @include media(map-get-deep($navConfig, 'mq', 'large')) {
+                padding-right: map-get-deep($navConfig, 'size', 'icon');
+                &::after {
+                    @include icon('angle-down');
+                    font-size: 1.5rem;
+                    line-height: map-get-deep($navConfig, 'size', 'icon') - 4px;
+                    height: map-get-deep($navConfig, 'size', 'icon') - 4px;
+                    width: map-get-deep($navConfig, 'size', 'icon') - 4px;
+                    color: map-get-deep($colors, 'light');
+                    transition: color .2s;
+                    display: block !important;
+                    position: absolute;
+                    top: 9.5px;
+                    left: 100%;
+                    margin-left: map-get-deep($navConfig, 'size', 'icon') * -.5;
+                    background-color: transparent;
+                }
+                .sub-menu {
+                    position: absolute;
+                    width: auto;
+                    min-width: 100%;
+                    top: map-get-deep($navConfig, 'size', 'toggleHeight');
+                    left: 0;
+                    .menu-item {
+                        transition: 0s;
+                        a {
+                            transition: 0s;
+                        }
+                    }
+                }
+                &:hover {
+                    &::after {
+                        color: map-get-deep($colors, 'solarized', 'triad');
+                    }
+                    .sub-menu,
+                    .sub-menu.toggled-on {
+                        @include showSub;
+                    }
                 }
             }
         }
@@ -208,6 +318,9 @@ $navConfig: (
             transition: color .2s;
         }
     }
+    @include media(map-get-deep($navConfig, 'mq', 'large')) {
+        display: none !important;
+    }
     &.toggled-on {
         transform: rotate(180deg);
     }
@@ -231,6 +344,10 @@ $navConfig: (
                 display: initial;
                 color: map-get-deep($colors, 'solarized', 'monotone');
             }
+        }
+        @include media(map-get-deep($navConfig, 'mq', 'large')) {
+            visibility: hidden;
+            position: absolute;
         }
     }
 }
