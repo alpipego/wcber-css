@@ -12,7 +12,7 @@ $navConfig: (
     ),
 );
 
-// fugly as hell
+// declare mixin here to make use of variables
 @mixin showSub() {
     height: auto;
     opacity: 1;
@@ -129,8 +129,10 @@ $navConfig: (
         background-color: map-get-deep($navConfig, 'colors', 'level-2');
         .menu-item {
             display: none;
+            text-align: left;
             a {
                 display: none;
+                white-space: nowrap;
             }
         }
     }
