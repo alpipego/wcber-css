@@ -129,10 +129,14 @@ $navConfig: (
         background-color: map-get-deep($navConfig, 'colors', 'level-2');
         .menu-item {
             display: none;
-            text-align: left;
+            @include media(map-get-deep($navConfig, 'mq', 'large')) {
+                text-align: left;
+            }
             a {
                 display: none;
-                white-space: nowrap;
+                @include media(map-get-deep($navConfig, 'mq', 'large')) {
+                    white-space: nowrap;
+                }
             }
         }
     }
