@@ -25,7 +25,6 @@
     }
     [class*="session-barcamp"] {
         text-align: left;
-        vertical-align: middle !important;
         .wpct-session-title {
             color: map-get-deep($colors, 'solarized', 'bg', 'default');
         }
