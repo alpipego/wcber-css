@@ -26,6 +26,9 @@
     }
     [class*="session-barcamp"] {
         text-align: left;
+        .wpct-session-title {
+            color: map-get-deep($colors, 'solarized', 'bg', 'default');
+        }
     }
     [class^="wcpt-time-"] {
         text-align: center;
