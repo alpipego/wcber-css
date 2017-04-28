@@ -44,7 +44,6 @@
             td {
                 border: 1px solid map-get-deep($colors, 'solarized', 'content');
                 padding: 10px;
-                word-break: break-all;
                 hyphens: auto;
                 vertical-align: top;
                 background-color: map-get-deep($colors, 'solarized', 'bg', 'light');
