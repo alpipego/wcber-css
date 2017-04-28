@@ -1,0 +1,115 @@
+.page-slug-schedule {
+    .site-main {
+        max-width: rem-calc(1200);
+    }
+    [class*="-fragen-networking-raumwechsel"],
+    [class*="-barcamp"] {
+        color: map-get-deep($colors, 'solarized', 'complement');
+        text-align: center;
+        vertical-align: middle;
+    }
+    .wcpt {
+        &-schedule {
+            font-size: 18px;
+            th {
+                font-family: $code;
+            }
+            th,
+            td {
+                border: 1px solid map-get-deep($colors, 'solarized', 'content');
+                padding: 10px;
+                word-break: break-all;
+                hyphens: auto;
+                vertical-align: top;
+                background-color: map-get-deep($colors, 'solarized', 'bg', 'light');
+            }
+            a {
+                border-bottom: 0;
+            }
+        }
+        &-col-track {
+            width: 22%;
+        }
+        &-session {
+            &-title {
+                display: block;
+            }
+            &-type {
+                &-session {
+                    .wcpt-session {
+                        &-title {
+                            color: map-get-deep($colors, 'solarized', 'monotone');
+                            &:hover {
+                                color: map-get-deep($colors, 'solarized', 'triad');
+                                transition-duration: .2s;
+                                border-bottom: 1px solid map-get-deep($colors, 'solarized', 'triad');
+                            }
+                        }
+                        &-speakers {
+                            color: map-get-deep($colors, 'solarized', 'bg', 'default');
+                            &:hover {
+                                color: map-get-deep($colors, 'solarized', 'tetrad');
+                                transition-duration: .2s;
+                                border-bottom: 1px solid map-get-deep($colors, 'solarized', 'tetrad');
+                            }
+                        }
+                    }
+                }
+            }
+            &-anmeldung,
+            &-eroeffnung-barcamp-pitch,
+            &-mittag,
+            &-kaffee-kuchen,
+            &-verabschiedung,
+            &-after-party {
+                color: map-get-deep($colors, 'solarized', 'complement');
+                text-align: center;
+                vertical-align: middle;
+            }
+        }
+        &-time {
+            text-align: center;
+            font: {
+                family: $code;
+                size: 16px;
+            }
+            vertical-align: middle;
+            &-1000,
+            &-1100,
+            &-1200 {
+                .wcb-track-saal {
+                    &-1,
+                    &-2 {
+                        border-bottom: 0;
+                    }
+                }
+            }
+            &-1025,
+            &-1125,
+            &-1225 {
+                .wcpt-session-empty {
+                    border-top: 0;
+                }
+            }
+            &-1025,
+            &-1125,
+            &-1225,
+            &-1025 {
+                td {
+                    &:nth-of-type(2) {
+                        border-right: 0;
+                    }
+                    &:nth-of-type(3) {
+                        border-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .global-session {
+        background-color: #eee;
+        td:nth-of-type(2) {
+            text-align: center;
+        }
+    }
+}
