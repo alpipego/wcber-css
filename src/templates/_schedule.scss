@@ -16,8 +16,7 @@
             }
         }
     }
-    [class*="session-fragen-networking-raumwechsel"],
-    [class*="session-barcamp"] {
+    [class*="session-fragen-networking-raumwechsel"] {
         text-align: center;
         vertical-align: middle !important;
         .wcpt-session-title {
@@ -26,6 +25,7 @@
     }
     [class*="session-barcamp"] {
         text-align: left;
+        vertical-align: middle !important;
         .wpct-session-title {
             color: map-get-deep($colors, 'solarized', 'bg', 'default');
         }
@@ -68,7 +68,6 @@
                             &:hover {
                                 color: map-get-deep($colors, 'solarized', 'triad');
                                 transition-duration: .2s;
-                                border-bottom: 1px solid map-get-deep($colors, 'solarized', 'triad');
                             }
                         }
                         &-speakers {
@@ -76,7 +75,6 @@
                             &:hover {
                                 color: map-get-deep($colors, 'solarized', 'tetrad');
                                 transition-duration: .2s;
-                                border-bottom: 1px solid map-get-deep($colors, 'solarized', 'tetrad');
                             }
                         }
                     }
