@@ -2,11 +2,34 @@
     .site-main {
         max-width: rem-calc(1200);
     }
-    [class*="-fragen-networking-raumwechsel"],
-    [class*="-barcamp"] {
-        color: map-get-deep($colors, 'solarized', 'complement');
+    .wcb-session {
+        &-anmeldung,
+        &-eroeffnung-barcamp-pitch,
+        &-mittag,
+        &-kaffee-kuchen,
+        &-verabschiedung,
+        &-after-party {
+            text-align: center;
+            vertical-align: middle !important;
+            .wcpt-session-title {
+                color: map-get-deep($colors, 'solarized', 'complement');
+            }
+        }
+    }
+    [class*="session-fragen-networking-raumwechsel"],
+    [class*="session-barcamp"] {
         text-align: center;
-        vertical-align: middle;
+        vertical-align: middle !important;
+        .wcpt-session-title {
+            color: map-get-deep($colors, 'solarized', 'complement');
+        }
+    }
+    [class*="session-barcamp"] {
+        text-align: left;
+    }
+    [class^="wcpt-time-"] {
+        text-align: center;
+        vertical-align: middle!important;
     }
     .wcpt {
         &-schedule {
@@ -56,19 +79,8 @@
                     }
                 }
             }
-            &-anmeldung,
-            &-eroeffnung-barcamp-pitch,
-            &-mittag,
-            &-kaffee-kuchen,
-            &-verabschiedung,
-            &-after-party {
-                color: map-get-deep($colors, 'solarized', 'complement');
-                text-align: center;
-                vertical-align: middle;
-            }
         }
         &-time {
-            text-align: center;
             font: {
                 family: $code;
                 size: 16px;
@@ -110,6 +122,15 @@
         background-color: #eee;
         td:nth-of-type(2) {
             text-align: center;
+        }
+    }
+    // overwrite shortcode css
+    @media screen and (max-width: 700px) {
+    .wcpt-session-type-session {
+            margin-bottom: 0;
+        }
+        .wcpt-session-empty {
+            display: none;
         }
     }
 }
