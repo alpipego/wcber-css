@@ -9,7 +9,7 @@
         &-kaffee-kuchen,
         &-verabschiedung,
         &-after-party {
-            text-align: center;
+            text-align: center!important;
             vertical-align: middle !important;
             .wcpt-session-title {
                 color: map-get-deep($colors, 'solarized', 'complement');
@@ -17,7 +17,7 @@
         }
     }
     [class*="session-fragen-networking-raumwechsel"] {
-        text-align: center;
+        text-align: center!important;
         vertical-align: middle !important;
         .wcpt-session-title {
             color: map-get-deep($colors, 'solarized', 'complement');
