@@ -36,9 +36,6 @@
     .wcpt {
         &-schedule {
             font-size: 18px;
-            th {
-                font-family: $code;
-            }
             th,
             td {
                 border: 1px solid map-get-deep($colors, 'solarized', 'content');
@@ -47,8 +44,18 @@
                 vertical-align: top;
                 background-color: map-get-deep($colors, 'solarized', 'bg', 'light');
             }
+            th {
+                font-family: $code;
+                text-align:center;
+            }
+            td {
+                text-align: left;
+            }
             a {
                 border-bottom: 0;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
         &-col-track {
