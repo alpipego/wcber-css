@@ -214,7 +214,8 @@ $navConfig: (
                 color: map-get-deep($colors, 'solarized', 'split-comp');
             }
         }
-        a[href*="tickets"] {
+        a[href*="tickets"],
+        a[href*="teilnehmer"] {
             color: map-get-deep($colors, 'solarized', 'complement');
             & ~ .sub-menu {
                 a {
